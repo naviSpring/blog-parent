@@ -1,6 +1,7 @@
 package com.ms.blog.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.ms.blog.common.Cache;
 import com.ms.blog.common.ServerResponse;
 import com.ms.blog.param.LoginParam;
 import com.ms.blog.pojo.SysUser;
@@ -8,11 +9,12 @@ import com.ms.blog.pojo.vo.UserVo;
 import com.ms.blog.service.LoginService;
 import com.ms.blog.service.SysUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author STEEZ
@@ -42,7 +44,6 @@ public class LoginController {
 
     @PostMapping("login")
     public ServerResponse login(@RequestBody LoginParam loginParam){
-
         return loginService.login(loginParam);
     }
 
@@ -52,10 +53,26 @@ public class LoginController {
      * 获取用户信息
      */
     @RequestMapping(value = "currentUser",method = RequestMethod.GET)
-    @ResponseBody
     public ServerResponse currentUser(@RequestHeader("Authorization") String token){
         return userService.findUserByToken(token);
     }
+
+    @PostMapping("getCacheData")
+    @Cache(name = "getCache",expire = 60 * 1000)
+    public ServerResponse getCacheData(String testId){
+        Map<String,Object> resMap = new HashMap<>();
+        List list = new ArrayList();
+        list.add(1);
+        list.add("1qwe");
+        list.add(new DateTime(new Date()).toString("yyyy-MM-dd HH:mm"));
+        resMap.put("list",list);
+        resMap.put("testId",testId);
+
+
+
+        return ServerResponse.Success(resMap);
+    }
+
 
 
 
