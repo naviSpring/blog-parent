@@ -2,6 +2,7 @@ package com.ms.blog.service;
 
 import com.ms.blog.common.ServerResponse;
 import com.ms.blog.param.LoginParam;
+import com.ms.blog.pojo.SysUser;
 
 /**
  * @author STEEZ
@@ -12,4 +13,6 @@ public interface LoginService {
 
 
     ServerResponse login(LoginParam loginParam);
+
+    SysUser checkToken(String token);
 }

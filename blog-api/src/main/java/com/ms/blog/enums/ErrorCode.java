@@ -12,6 +12,7 @@ public enum ErrorCode {
     SYSTEM_ERROR(-999,"系统异常"),
     PARAMS_ERROR(10001,"参数有误"),
     ACCOUNT_PWD_NOT_EXIST(10002,"用户名或密码不存在"),
+    TOKEN_ILLEGAL(10003,"非法的符号"),
     NO_PERMISSION(70001,"无访问权限"),
     SESSION_TIME_OUT(90001,"会话超时"),
     NO_LOGIN(90002,"未登录"),

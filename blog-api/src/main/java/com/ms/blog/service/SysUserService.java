@@ -1,5 +1,6 @@
 package com.ms.blog.service;
 
+import com.ms.blog.common.ServerResponse;
 import com.ms.blog.pojo.SysUser;
 
 /**
@@ -9,4 +10,6 @@ import com.ms.blog.pojo.SysUser;
  */
 public interface SysUserService {
     SysUser findUser(String account, String password);
+
+    ServerResponse findUserByToken(String token);
 }
