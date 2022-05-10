@@ -5,6 +5,7 @@ import com.ms.blog.common.ServerResponse;
 import com.ms.blog.enums.ErrorCode;
 import com.ms.blog.pojo.SysUser;
 import com.ms.blog.service.LoginService;
+import com.ms.blog.utils.UserThreadLocal;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,13 @@ public class LoginInterceptor implements HandlerInterceptor {
         //是登录状态，放行
         //登录验证成功，放行
         //我希望在controller中 直接获取用户的信息 怎么获取?
-
+        UserThreadLocal.put(sysUser);
         return true;
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        //如果不删除 ThreadLocal中用完的信息 会有内存泄漏的风险
+        UserThreadLocal.remove();
     }
 }

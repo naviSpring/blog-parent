@@ -1,6 +1,8 @@
 package com.ms.blog.config;
 
+import org.apache.shiro.realm.Realm;
 import org.apache.shiro.session.mgt.SessionManager;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -67,5 +69,18 @@ public class ShiroConfig {
 //
 //        return shiroFilter;
 //    }
+
+//    @Bean
+//    public SecurityManager securityManager(){
+//        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+//        securityManager.setSessionManager(new DefaultWebSessionManager());
+//        securityManager.setRealm(new WebRealm());
+//        return securityManager;
+//    }
+
+
+
+
+
 
 }

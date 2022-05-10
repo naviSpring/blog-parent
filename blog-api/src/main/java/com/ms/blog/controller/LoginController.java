@@ -8,6 +8,7 @@ import com.ms.blog.pojo.SysUser;
 import com.ms.blog.pojo.vo.UserVo;
 import com.ms.blog.service.LoginService;
 import com.ms.blog.service.SysUserService;
+import com.ms.blog.utils.UserThreadLocal;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
@@ -23,6 +24,7 @@ import java.util.*;
  */
 @Slf4j
 @RestController
+@RequestMapping("/login")
 public class LoginController {
 
     @Autowired
@@ -60,6 +62,9 @@ public class LoginController {
     @PostMapping("getCacheData")
     @Cache(name = "getCache",expire = 60 * 1000)
     public ServerResponse getCacheData(String testId){
+        //从线程隔离中获取
+        SysUser sysUser = UserThreadLocal.get();
+
         Map<String,Object> resMap = new HashMap<>();
         List list = new ArrayList();
         list.add(1);
