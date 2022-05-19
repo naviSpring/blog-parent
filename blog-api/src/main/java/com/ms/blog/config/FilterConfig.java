@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @Desc    配置 装饰者模式对 HttpServletRequest 的功能进行增强的拦截器
  */
 @Configuration
-public class CommonConfig {
+public class FilterConfig {
 
     @Bean
     FilterRegistrationBean<RepeatableFilter> repeatableFilterBean() {

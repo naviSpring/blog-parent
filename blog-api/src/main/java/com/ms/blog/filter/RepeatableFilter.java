@@ -13,7 +13,7 @@ import java.io.IOException;
  * @className RepeatableFilter
  * @Author :Wud
  * @CreateDate 2022/5/19 11:03
- * @Desc
+ * @Desc    构建可重复读取inputStream的request 拦截器
  */
 public class RepeatableFilter implements Filter {
     @Override
