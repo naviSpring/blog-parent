@@ -33,7 +33,8 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private RedisTemplate<String,String> redisTemplate;
 
-    private static final String salt = "Steez!@#";
+//    private static final String salt = "Steez!@#";
+    private static final String salt = "eamilMobileOpenApi123!@#";
 
     public LoginServiceImpl() {
     }
@@ -72,4 +73,40 @@ public class LoginServiceImpl implements LoginService {
         SysUser sysUser = JSON.parseObject(userJson, SysUser.class);
         return sysUser;
     }
+
+    public static void main(String[] args) {
+        String s = DigestUtils.md5Hex("1234" + salt);
+        System.out.println(s);
+    }
+
+
+    public void test(){
+//        Config config = new Config();
+//        //配置 Redis 基本连接信息
+//        config.useSingleServer().setAddress("redis://127.0.0.1:6379").setPassword("123");
+//        //获取一个 RedissonClient 对象
+//        RedissonClient redisson = Redisson.create(config);
+//        //获取一个锁对象实例
+//        RLock lock = redisson.getLock("lock");
+//        try {
+//            //获取锁
+//            boolean b = lock.tryLock(500, 1000, TimeUnit.MILLISECONDS);
+//            if (b) {
+//                //获取到锁了，开始写业务
+//                RBucket<Object> bucket = redisson.getBucket("javaboy");
+//                bucket.set("www.javaboy.org");
+//                Object o = bucket.get();
+//                System.out.println(o);
+//            }else{
+//                System.out.println("没拿到锁");
+//            }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } finally {
+//            //释放锁
+//            lock.unlock();
+//        }
+
+    }
+
 }

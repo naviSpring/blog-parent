@@ -16,7 +16,8 @@ public enum ErrorCode {
     NO_PERMISSION(70001,"无访问权限"),
     SESSION_TIME_OUT(90001,"会话超时"),
     NO_LOGIN(90002,"未登录"),
-    FILE_UPLOAD_ERROR(20001,"上传失败")
+    FILE_UPLOAD_ERROR(20001,"上传失败"),
+    VISIT_TOO_FREQUENTLY(20002,"访问过于频繁，请稍候再试")
     ;
 
 //    ErrorCode(int code, String msg) {
