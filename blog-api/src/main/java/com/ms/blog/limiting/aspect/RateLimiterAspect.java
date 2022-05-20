@@ -26,7 +26,7 @@ import java.util.List;
  * @className RateLimiterAspect
  * @Author :Wud
  * @CreateDate 2022/5/16 11:30
- * @Desc
+ * @Desc    限流拦截器
  */
 @Slf4j
 @Aspect
